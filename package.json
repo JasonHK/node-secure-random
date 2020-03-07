@@ -1,6 +1,6 @@
 {
   "name": "@jasonhk/secure-random",
-  "description": "",
+  "description": "A library that aims to provide a unified way to generate cryptographically strong random values.",
   "version": "0.0.1",
   "license": "MIT",
   "author": "Jason Kwok <github@jasonhk.email> (https://jasonhk.net)",
