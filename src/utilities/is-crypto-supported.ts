@@ -12,7 +12,7 @@ import { IGlobalContext } from "../interfaces/global-context";
  * @hidden
  * 
  * @param context A environment to be determine.
- * @return Return `true` if the environment support the Web Crypto API, otherwise, return `false`.
+ * @returns Return `true` if the environment support the Web Crypto API, otherwise, return `false`.
  */
 export function isCryptoSupported(context: unknown): context is IGlobalContext
 {

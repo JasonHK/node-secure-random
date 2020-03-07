@@ -26,7 +26,7 @@ export abstract class SecureRandom
      * asynchronously. Then convert the binary stream to an `Array`.
      * 
      * @param length The length (in byte) of the generated binary stream.
-     * @return The `Promise` containing the `Array` the binary stream was converted to.
+     * @returns The `Promise` containing the `Array` the binary stream was converted to.
      */
     public abstract getRandomBytes(length: number): Promise<IOutputTypesMap[OutputType.ARRAY]>;
 
@@ -36,7 +36,7 @@ export abstract class SecureRandom
      * 
      * @param length The length (in byte) of the generated binary stream.
      * @param type   The type of output the binary stream will be converted to.
-     * @return The `Promise` containing the object the binary stream was converted to.
+     * @returns The `Promise` containing the object the binary stream was converted to.
      */
     public abstract getRandomBytes<T extends OutputType>(length: number, type: T): Promise<IOutputTypesMap[T]>;
 
@@ -45,7 +45,7 @@ export abstract class SecureRandom
      * synchronously. Then convert the binary stream to an `Array`.
      * 
      * @param length The length (in byte) of the generated binary stream.
-     * @return The `Array` the binary stream was converted to.
+     * @returns The `Array` the binary stream was converted to.
      */
     public abstract getRandomBytesSync(length: number): IOutputTypesMap[OutputType.ARRAY];
 
@@ -55,7 +55,7 @@ export abstract class SecureRandom
      * 
      * @param length The length (in byte) of the generated binary stream.
      * @param type   The type of output the binary stream will be converted to.
-     * @return The object the binary stream was converted to.
+     * @returns The object the binary stream was converted to.
      */
     public abstract getRandomBytesSync<T extends OutputType>(length: number, type: T): IOutputTypesMap[T];
 
@@ -64,7 +64,7 @@ export abstract class SecureRandom
      * asynchronously. Then convert the binary stream to an `Array`.
      * 
      * @param length The length (in byte) of the generated binary stream.
-     * @return The `Promise` containing the `Array` the binary stream was converted to.
+     * @returns The `Promise` containing the `Array` the binary stream was converted to.
      */
     public getArrayOfRandomBytes(length: number): Promise<IOutputTypesMap[OutputType.ARRAY]>
     {
@@ -76,7 +76,7 @@ export abstract class SecureRandom
      * synchronously. Then convert the binary stream to an `Array`.
      * 
      * @param length The length (in byte) of the generated binary stream.
-     * @return The `Array` the binary stream was converted to.
+     * @returns The `Array` the binary stream was converted to.
      */
     public getArrayOfRandomBytesSync(length: number): IOutputTypesMap[OutputType.ARRAY]
     {
@@ -88,7 +88,7 @@ export abstract class SecureRandom
      * asynchronously. Then convert the binary stream to an `ArrayBuffer`.
      * 
      * @param length The length (in byte) of the generated binary stream.
-     * @return The `Promise` containing the `ArrayBuffer` the binary stream was converted to.
+     * @returns The `Promise` containing the `ArrayBuffer` the binary stream was converted to.
      */
     public getArrayBufferOfRandomBytes(length: number): Promise<IOutputTypesMap[OutputType.ARRAY_BUFFER]>
     {
@@ -100,7 +100,7 @@ export abstract class SecureRandom
      * synchronously. Then convert the binary stream to an `ArrayBuffer`.
      * 
      * @param length The length (in byte) of the generated binary stream.
-     * @return The `ArrayBuffer` the binary stream was converted to.
+     * @returns The `ArrayBuffer` the binary stream was converted to.
      */
     public getArrayBufferOfRandomBytesSync(length: number): IOutputTypesMap[OutputType.ARRAY_BUFFER]
     {
@@ -112,7 +112,7 @@ export abstract class SecureRandom
      * asynchronously. Then convert the binary stream to an `Buffer`.
      * 
      * @param length The length (in byte) of the generated binary stream.
-     * @return The `Promise` containing the `Buffer` the binary stream was converted to.
+     * @returns The `Promise` containing the `Buffer` the binary stream was converted to.
      */
     public getBufferOfRandomBytes(length: number): Promise<IOutputTypesMap[OutputType.BUFFER]>
     {
@@ -124,7 +124,7 @@ export abstract class SecureRandom
      * synchronously. Then convert the binary stream to an `Buffer`.
      * 
      * @param length The length (in byte) of the generated binary stream.
-     * @return The `Buffer` the binary stream was converted to.
+     * @returns The `Buffer` the binary stream was converted to.
      */
     public getBufferOfRandomBytesSync(length: number): IOutputTypesMap[OutputType.BUFFER]
     {
@@ -136,7 +136,7 @@ export abstract class SecureRandom
      * asynchronously. Then convert the binary stream to an `Uint8Array`.
      * 
      * @param length The length (in byte) of the generated binary stream.
-     * @return The `Promise` containing the `Uint8Array` the binary stream was converted to.
+     * @returns The `Promise` containing the `Uint8Array` the binary stream was converted to.
      */
     public getUint8ArrayOfRandomBytes(length: number): Promise<IOutputTypesMap[OutputType.UINT8_ARRAY]>
     {
@@ -148,7 +148,7 @@ export abstract class SecureRandom
      * synchronously. Then convert the binary stream to an `Uint8Array`.
      * 
      * @param length The length (in byte) of the generated binary stream.
-     * @return The `Uint8Array` the binary stream was converted to.
+     * @returns The `Uint8Array` the binary stream was converted to.
      */
     public getUint8ArrayOfRandomBytesSync(length: number): IOutputTypesMap[OutputType.UINT8_ARRAY]
     {

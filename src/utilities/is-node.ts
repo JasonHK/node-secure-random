@@ -9,7 +9,7 @@ import isString from "lodash.isstring";
  * 
  * @hidden
  * 
- * @return Return `true` when the library is running in Node.js runtime, otherwise, return `false`.
+ * @returns Return `true` when the library is running in Node.js runtime, otherwise, return `false`.
  */
 export function isNode(): boolean
 {
