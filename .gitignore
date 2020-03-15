@@ -14,6 +14,9 @@
 # Configuration Files
 /configs/rollup.config.js
 
+# Jest Environment
+!/tests/_environment.js
+
 # TypeDoc Documentations
 /docs
 

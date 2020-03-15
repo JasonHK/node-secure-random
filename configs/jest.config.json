@@ -1,6 +1,6 @@
 {
     "preset": "ts-jest",
-    "testEnvironment": "node",
+    "testEnvironment": "./tests/_environment.js",
     "rootDir": "../",
     "roots": [
         "<rootDir>"
