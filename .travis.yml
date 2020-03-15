@@ -15,18 +15,18 @@ before_script:
 script:
     - npm run test:coverage
 
-# after_success:
-#     - npx codecov
+after_success:
+    - npx codecov
 
-# before_deploy:
-#     - npm run build:typedoc
+before_deploy:
+    - npm run build:typedoc
 
-# deploy:
-#     edge: true
-#     provider: pages
-#     token: $GITHUB_DEPLOY_TOKEN
-#     local_dir: docs
-#     cleanup: false
-#     on:
-#         node_js: 13
-#         branch: master
+deploy:
+    edge: true
+    provider: pages
+    token: $GITHUB_DEPLOY_TOKEN
+    local_dir: docs
+    cleanup: false
+    on:
+        node_js: 13
+        branch: master
