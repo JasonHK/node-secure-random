@@ -19,7 +19,7 @@ after_success:
     - npx codecov
 
 before_deploy:
-    - npm run build:typedoc
+    - npm run build:docs
 
 deploy:
     edge: true
