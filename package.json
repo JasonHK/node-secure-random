@@ -36,11 +36,13 @@
     "@aloreljs/bound-decorator": "1.1.x",
     "@jasonhk/variable-name": "0.0.2",
     "@types/node": "13.7.x",
+    "globalthis": "^1.0.1",
     "lodash.isfunction": "3.0.x",
     "lodash.isobject": "3.0.x",
     "lodash.isstring": "4.0.x"
   },
   "devDependencies": {
+    "@types/globalthis": "^1.0.0",
     "@types/jest": "25.1.x",
     "@types/lodash.isfunction": "3.0.x",
     "@types/lodash.isobject": "3.0.x",

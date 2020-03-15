@@ -1,12 +1,19 @@
 "use strict";
 
 import { readFileSync } from "fs";
+import getGlobalThis from "globalthis";
 import Module from "module";
 import Path from "path";
+import { mocked } from "ts-jest/utils";
 import * as TSNode from "ts-node";
 import { Script, createContext } from "vm";
 
 import { isNode } from "src/utilities/is-node";
+
+jest.mock("globalthis");
+const getGlobalThisMocked = mocked(getGlobalThis);
+
+afterAll(() => { getGlobalThisMocked.mockRestore(); });
 
 describe(
     "isNode(): boolean",
@@ -16,6 +23,15 @@ describe(
             "Case: Node.js runtime",
             () =>
             {
+                getGlobalThisMocked.mockReturnValueOnce(
+                    {
+                        process: {
+                            versions: {
+                                node: process.versions.node,
+                            },
+                        },
+                    } as typeof globalThis);
+                    
                 expect(isNode()).toBe(true);
             });
 
@@ -23,26 +39,7 @@ describe(
             "Case: Non-Node.js environment",
             () =>
             {
-                const compiler = TSNode.create({ project: Path.resolve(__dirname, "../tsconfig.json") });
-                
-                const modulePath = require.resolve("src/utilities/is-node");
-                const moduleCode = compiler.compile(readFileSync(modulePath, "utf8"), modulePath);
-
-                const context = createContext({ require });
-                const script = new Script(`
-                    const { isNode } = (
-                        () =>
-                        {
-                            const module = ${ Module.wrap(moduleCode) }
-
-                            const _module = { exports: {} };
-                            module(_module.exports, require, _module);
-
-                            return _module.exports;
-                        })();
-
-                    isNode();`);
-
-                expect(script.runInContext(context)).toBe(false);
+                getGlobalThisMocked.mockReturnValueOnce({} as typeof globalThis);
+                expect(isNode()).toBe(false);
             });
     });

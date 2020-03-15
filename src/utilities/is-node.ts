@@ -1,5 +1,6 @@
 "use strict";
 
+import getGlobalThis from "globalthis";
 import isObject from "lodash.isobject";
 import isString from "lodash.isstring";
 
@@ -13,10 +14,12 @@ import isString from "lodash.isstring";
  */
 export function isNode(): boolean
 {
+    const _globalThis = getGlobalThis();
+    
     return (
-        Reflect.has(globalThis, "process") &&
-        isObject(process) &&
-        isObject(process.versions) &&
-        isString(process.versions.node)
+        Reflect.has(_globalThis, "process") &&
+        isObject(_globalThis.process) &&
+        isObject(_globalThis.process.versions) &&
+        isString(_globalThis.process.versions.node)
     );
 }
