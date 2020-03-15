@@ -1,7 +1,7 @@
 "use strict";
 
 /**
- * AN enum consists of the options of available output types.
+ * An enum consists of the options of available output types.
  * 
  * @since 0.0.1
  */
