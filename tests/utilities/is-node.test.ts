@@ -1,12 +1,7 @@
 "use strict";
 
-import { readFileSync } from "fs";
 import getGlobalThis from "globalthis";
-import Module from "module";
-import Path from "path";
 import { mocked } from "ts-jest/utils";
-import * as TSNode from "ts-node";
-import { Script, createContext } from "vm";
 
 import { isNode } from "src/utilities/is-node";
 
