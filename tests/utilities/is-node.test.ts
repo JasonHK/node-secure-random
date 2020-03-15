@@ -26,8 +26,7 @@ describe(
                 const compiler = TSNode.create({ project: Path.resolve(__dirname, "../tsconfig.json") });
                 
                 const modulePath = require.resolve("src/utilities/is-node");
-                const moduleName = Path.basename(modulePath);
-                const moduleCode = compiler.compile(readFileSync(modulePath, "utf8"), moduleName);
+                const moduleCode = compiler.compile(readFileSync(modulePath, "utf8"), modulePath);
 
                 const context = createContext({ require });
                 const script = new Script(`
