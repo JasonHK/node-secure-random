@@ -1,13 +1,13 @@
 "use strict";
 
-import { SecureRandom } from "../secure-random";
+import { AbstractSecureRandom } from "../abstract-secure-random";
 
 /**
  * An interface that represents the static members of a `SecureRandom` class.
  * 
  * @hidden
  */
-export interface ISecureRandomStatic<T extends SecureRandom = SecureRandom>
+export interface ISecureRandomStatic<T extends AbstractSecureRandom = AbstractSecureRandom>
 {
     /**
      * Initialize a new `SecureRandom` instance.

@@ -1,7 +1,7 @@
 "use strict";
 
+import { AbstractSecureRandom } from "src/abstract-secure-random";
 import { OutputType } from "src/output-type";
-import { SecureRandom } from "src/secure-random";
 import { UnknownOutputTypeError } from "src/errors/unknown-output-type-error";
 import { IOutputTypes } from "src/interfaces/output-types";
 
@@ -11,7 +11,7 @@ import { OUTPUT_TYPES_MAP } from "./_output-types-map";
 
 import { IOutputTypesStatic } from "./_interfaces/output-types-static";
 
-export function SecureRandomInstanceTest(instance: SecureRandom): void
+export function executeSecureRandomInstanceTest(instance: AbstractSecureRandom): void
 {
     describe(
         "getRandomBytes(length: number): Promise<IOutputTypesMap[OutputType.ARRAY]>",

@@ -5,8 +5,8 @@ import { BoundMethod } from "@aloreljs/bound-decorator";
 import { getVariableName } from "@jasonhk/variable-name";
 import { randomBytes } from "crypto";
 
+import { AbstractSecureRandom } from "./abstract-secure-random";
 import { OutputType } from "./output-type";
-import { SecureRandom } from "./secure-random";
 
 import { UnknownOutputTypeError } from "./errors/unknown-output-type-error";
 
@@ -14,9 +14,9 @@ import { IOutputTypes } from "./interfaces/output-types";
 import { IOutputTypesMap } from "./interfaces/output-types-map";
 
 /**
- * A `SecureRandom` implementation for the [Node.js](https://nodejs.org/) runtime.
+ * A `SecureRandom` implementation for the [Node.js](https://nodejs.org/) runtime environment.
  */
-export class SecureRandomNode extends SecureRandom
+export class SecureRandomNode extends AbstractSecureRandom
 {
     /**
      * Generate a binary stream of cryptographically strong random values of the given length
