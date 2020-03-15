@@ -1,5 +1,7 @@
 "use strict";
 
+import { BoundClass, BoundMethod } from "@aloreljs/bound-decorator";
+
 import { OutputType } from "./output-type";
 
 import { IOutputTypesMap } from "./interfaces/output-types-map";
@@ -8,6 +10,7 @@ import { IOutputTypesMap } from "./interfaces/output-types-map";
  * An abstract representation of a secure random implementation. All secure random implementations
  * were inherited from this class.
  */
+@BoundClass()
 export abstract class SecureRandom
 {
     /**
@@ -66,6 +69,7 @@ export abstract class SecureRandom
      * @param length The length (in byte) of the generated binary stream.
      * @returns The `Promise` containing the `Array` the binary stream was converted to.
      */
+    @BoundMethod()
     public getArrayOfRandomBytes(length: number): Promise<IOutputTypesMap[OutputType.ARRAY]>
     {
         return this.getRandomBytes(length, OutputType.ARRAY);
@@ -78,6 +82,7 @@ export abstract class SecureRandom
      * @param length The length (in byte) of the generated binary stream.
      * @returns The `Array` the binary stream was converted to.
      */
+    @BoundMethod()
     public getArrayOfRandomBytesSync(length: number): IOutputTypesMap[OutputType.ARRAY]
     {
         return this.getRandomBytesSync(length, OutputType.ARRAY);
@@ -90,6 +95,7 @@ export abstract class SecureRandom
      * @param length The length (in byte) of the generated binary stream.
      * @returns The `Promise` containing the `ArrayBuffer` the binary stream was converted to.
      */
+    @BoundMethod()
     public getArrayBufferOfRandomBytes(length: number): Promise<IOutputTypesMap[OutputType.ARRAY_BUFFER]>
     {
         return this.getRandomBytes(length, OutputType.ARRAY_BUFFER);
@@ -102,6 +108,7 @@ export abstract class SecureRandom
      * @param length The length (in byte) of the generated binary stream.
      * @returns The `ArrayBuffer` the binary stream was converted to.
      */
+    @BoundMethod()
     public getArrayBufferOfRandomBytesSync(length: number): IOutputTypesMap[OutputType.ARRAY_BUFFER]
     {
         return this.getRandomBytesSync(length, OutputType.ARRAY_BUFFER);
@@ -114,6 +121,7 @@ export abstract class SecureRandom
      * @param length The length (in byte) of the generated binary stream.
      * @returns The `Promise` containing the `Buffer` the binary stream was converted to.
      */
+    @BoundMethod()
     public getBufferOfRandomBytes(length: number): Promise<IOutputTypesMap[OutputType.BUFFER]>
     {
         return this.getRandomBytes(length, OutputType.BUFFER);
@@ -126,6 +134,7 @@ export abstract class SecureRandom
      * @param length The length (in byte) of the generated binary stream.
      * @returns The `Buffer` the binary stream was converted to.
      */
+    @BoundMethod()
     public getBufferOfRandomBytesSync(length: number): IOutputTypesMap[OutputType.BUFFER]
     {
         return this.getRandomBytesSync(length, OutputType.BUFFER);
@@ -138,6 +147,7 @@ export abstract class SecureRandom
      * @param length The length (in byte) of the generated binary stream.
      * @returns The `Promise` containing the `Uint8Array` the binary stream was converted to.
      */
+    @BoundMethod()
     public getUint8ArrayOfRandomBytes(length: number): Promise<IOutputTypesMap[OutputType.UINT8_ARRAY]>
     {
         return this.getRandomBytes(length, OutputType.UINT8_ARRAY);
@@ -150,6 +160,7 @@ export abstract class SecureRandom
      * @param length The length (in byte) of the generated binary stream.
      * @returns The `Uint8Array` the binary stream was converted to.
      */
+    @BoundMethod()
     public getUint8ArrayOfRandomBytesSync(length: number): IOutputTypesMap[OutputType.UINT8_ARRAY]
     {
         return this.getRandomBytesSync(length, OutputType.UINT8_ARRAY);
