@@ -12,7 +12,7 @@ export const enum OutputType
      * 
      * @since 0.0.1
      */
-    ARRAY        = "array",
+    ARRAY = "array",
 
     /**
      * Set the output type as `ArrayBuffer`.
@@ -26,12 +26,12 @@ export const enum OutputType
      * 
      * @since 0.0.1
      */
-    BUFFER       = "buffer",
+    BUFFER = "buffer",
 
     /**
      * Set the output type as `Uint8Array`.
      * 
      * @since 0.0.1
      */
-    UINT8_ARRAY  = "uint8array",
+    UINT8_ARRAY = "uint8array",
 }
