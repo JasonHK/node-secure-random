@@ -116,6 +116,13 @@ export class SecureRandomNode extends AbstractSecureRandom
         return this._transformRandomBytes(randomBytes(length), type);
     }
 
+    /**
+     * Convert the received binary stream to the given type.
+     * 
+     * @param buffer The binary stream.
+     * @param type   The type of output the binary stream will be converted to.
+     * @returns The object the binary stream was converted to.
+     */
     private _transformRandomBytes(buffer: Buffer, type: OutputType): IOutputTypes
     {
         type = type.toLowerCase() as OutputType;
