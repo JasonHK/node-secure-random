@@ -19,6 +19,9 @@ import { IOutputTypesMap } from "./interfaces/output-types-map";
 
 import { isCryptoSupported } from "./utilities/is-crypto-supported";
 
+import { validateNumber } from "./validators/validate-number";
+import { validateString } from "./validators/validate-string";
+
 /**
  * A `SecureRandom` implementation for environments that support the [Web Crypto API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API).
  */
@@ -100,16 +103,10 @@ export class SecureRandomStandard extends AbstractSecureRandom
     @BoundMethod()
     public getRandomBytesSync(length: number, type?: OutputType): IOutputTypes
     {
-        if (typeof length !== "number")
-        {
-            throw new TypeError(`\`${ getVariableName({ length }) }\`is not a number.`);
-        }
-        else if ((typeof type !== "string") && (typeof type !== "undefined"))
-        {
-            throw new TypeError(`\`${ getVariableName({ type }) }\`is not a string.`);
-        }
-
         type = type ?? OutputType.ARRAY;
+
+        validateNumber(length, getVariableName({ length }));
+        validateString(type, getVariableName({ type }));
 
         const array = new Uint8Array(length);
         this._crypto.getRandomValues(array);

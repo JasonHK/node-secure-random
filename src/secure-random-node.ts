@@ -13,6 +13,9 @@ import { UnknownOutputTypeError } from "./errors/unknown-output-type-error";
 import { IOutputTypes } from "./interfaces/output-types";
 import { IOutputTypesMap } from "./interfaces/output-types-map";
 
+import { validateNumber } from "./validators/validate-number";
+import { validateString } from "./validators/validate-string";
+
 /**
  * A `SecureRandom` implementation for the [Node.js](https://nodejs.org/) runtime environment.
  */
@@ -44,16 +47,10 @@ export class SecureRandomNode extends AbstractSecureRandom
     @BoundMethod()
     public getRandomBytes(length: number, type?: OutputType): Promise<IOutputTypes>
     {
-        if (typeof length !== "number")
-        {
-            throw new TypeError(`\`${ getVariableName({ length }) }\`is not a number.`);
-        }
-        else if ((typeof type !== "string") && (typeof type !== "undefined"))
-        {
-            throw new TypeError(`\`${ getVariableName({ type }) }\`is not a string.`);
-        }
-
         type = type ?? OutputType.ARRAY;
+
+        validateNumber(length, getVariableName({ length }));
+        validateString(type, getVariableName({ type }));
 
         return new Promise(
             (resolve, reject) =>
@@ -102,16 +99,10 @@ export class SecureRandomNode extends AbstractSecureRandom
     @BoundMethod()
     public getRandomBytesSync(length: number, type?: OutputType): IOutputTypes
     {
-        if (typeof length !== "number")
-        {
-            throw new TypeError(`\`${ getVariableName({ length }) }\`is not a number.`);
-        }
-        else if ((typeof type !== "string") && (typeof type !== "undefined"))
-        {
-            throw new TypeError(`\`${ getVariableName({ type }) }\`is not a string.`);
-        }
-
         type = type ?? OutputType.ARRAY;
+
+        validateNumber(length, getVariableName({ length }));
+        validateString(type, getVariableName({ type }));
 
         return this._transformRandomBytes(randomBytes(length), type);
     }
