@@ -15,7 +15,7 @@ describe(
     () =>
     {
         test(
-            "Case: Node.js runtime",
+            "Case: Node.js runtime environment",
             () =>
             {
                 getGlobalThisMocked.mockReturnValueOnce(
@@ -31,7 +31,7 @@ describe(
             });
 
         test(
-            "Case: Non-Node.js environment",
+            "Case: Other environment",
             () =>
             {
                 getGlobalThisMocked.mockReturnValueOnce({} as typeof globalThis);
