@@ -1,7 +1,11 @@
 "use strict";
 
+import NodeWebCrypto from "node-webcrypto-ossl";
+
 import { IGlobalContext } from "src/interfaces/global-context";
 import { isCryptoSupported } from "src/utilities/is-crypto-supported";
+
+const crypto = new NodeWebCrypto();
 
 describe(
     "isCryptoSupported(context: unknown): context is IWindowLike",
@@ -15,12 +19,7 @@ describe(
                     "- Standard",
                     () =>
                     {
-                        const context: IGlobalContext.Standard = {
-                            crypto: {
-                                getRandomValues(array) { return array; },
-                            },
-                        };
-
+                        const context: IGlobalContext.Standard = { crypto };
                         expect(isCryptoSupported(context)).toBe(true);
                     });
 
@@ -28,12 +27,7 @@ describe(
                     "- Microsoft",
                     () =>
                     {
-                        const context: IGlobalContext.Microsoft = {
-                            msCrypto: {
-                                getRandomValues(array) { return array; },
-                            },
-                        };
-
+                        const context: IGlobalContext.Microsoft = { msCrypto: crypto };
                         expect(isCryptoSupported(context)).toBe(true);
                     });
             });
