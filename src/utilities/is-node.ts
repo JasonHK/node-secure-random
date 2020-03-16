@@ -14,12 +14,12 @@ import isString from "lodash.isstring";
  */
 export function isNode(): boolean
 {
-    const _globalThis = getGlobalThis();
+    const context = getGlobalThis();
     
     return (
-        Reflect.has(_globalThis, "process") &&
-        isObject(_globalThis.process) &&
-        isObject(_globalThis.process.versions) &&
-        isString(_globalThis.process.versions.node)
+        Reflect.has(context, "process") &&
+        isObject(context.process) &&
+        isObject(context.process.versions) &&
+        isString(context.process.versions.node)
     );
 }
