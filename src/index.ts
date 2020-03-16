@@ -1,15 +1,13 @@
 "use strict";
 
-import { ISecureRandomStatic } from "./interfaces/secure-random-static";
-
-import { isNode } from "./utilities/is-node";
+import { getSecureRandom } from "./utilities/get-secure-random";
 
 /**
  * A `SecureRandom` implementation for the current environment.
  * 
  * @since 0.0.1
  */
-export const SecureRandom = getSecureRandomImplementation();
+export const SecureRandom = getSecureRandom();
 
 /**
  * A `SecureRandom` instance.
@@ -97,25 +95,6 @@ export const getUint8ArrayOfRandomBytes = secureRandom.getUint8ArrayOfRandomByte
  * @since 0.0.1
  */
 export const getUint8ArrayOfRandomBytesSync = secureRandom.getUint8ArrayOfRandomBytesSync;
-
-/**
- * Select a `SecureRandom` implementation that was for the current environment.
- * 
- * @hidden
- * 
- * @returns A `SecureRandom` implementation.
- */
-function getSecureRandomImplementation(): ISecureRandomStatic
-{
-    if (isNode())
-    {
-        return (require("./secure-random-node") as typeof import("./secure-random-node")).SecureRandomNode;
-    }
-    else
-    {
-        return (require("./secure-random-standard") as typeof import("./secure-random-standard")).SecureRandomStandard;
-    }
-}
 
 export * from "./abstract-secure-random";
 export * from "./output-type";
