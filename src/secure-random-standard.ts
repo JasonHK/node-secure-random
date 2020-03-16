@@ -2,8 +2,8 @@
 
 import { BoundMethod } from "@aloreljs/bound-decorator";
 import { getVariableName } from "@jasonhk/variable-name";
+import getGlobalThis from "globalthis";
 import isFunction from "lodash.isfunction";
-import isObject from "lodash.isobject";
 
 import { AbstractSecureRandom } from "./abstract-secure-random";
 import { OutputType } from "./output-type";
@@ -38,7 +38,7 @@ export class SecureRandomStandard extends AbstractSecureRandom
      */
     public constructor()
     {
-        const context = (isObject(globalThis) && globalThis) || (isObject(window) && window) || (isObject(self) && self) || (isObject(global) && global);
+        const context = getGlobalThis();
         if (!isCryptoSupported(context)) { throw new CryptoUnsupportedError(); }
 
         super();
