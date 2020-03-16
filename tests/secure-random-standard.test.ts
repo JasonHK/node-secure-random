@@ -1,13 +1,8 @@
 "use strict";
 
-import { SecureRandomStandard } from "src/secure-random-standard";
-
-import { readFileSync } from "fs";
-import Module from "module";
 import NodeWebCrypto from "node-webcrypto-ossl";
-import Path from "path";
-import * as TSNode from "ts-node";
-import { Script, createContext } from "vm";
+
+import { SecureRandomStandard } from "src/secure-random-standard";
 
 import { executeSecureRandomInstanceTest } from "./_secure-random";
 
