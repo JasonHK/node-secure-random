@@ -1,9 +1,9 @@
 "use strict";
 
 import { BoundMethod } from "@aloreljs/bound-decorator";
-
 import { getVariableName } from "@jasonhk/variable-name";
 import { randomBytes } from "crypto";
+import isNull from "lodash.isnull";
 
 import { AbstractSecureRandom } from "./abstract-secure-random";
 import { OutputType } from "./output-type";
@@ -59,7 +59,7 @@ export class SecureRandomNode extends AbstractSecureRandom
                     length,
                     (error, buffer) =>
                     {
-                        if (!!error) { reject(error); }
+                        if (!isNull(error)) { reject(error); }
                         
                         try
                         {
