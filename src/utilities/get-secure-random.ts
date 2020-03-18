@@ -2,7 +2,11 @@
 
 import { ISecureRandomStatic } from "../interfaces/secure-random-static";
 
+import { FLAG_BROWSER_ONLY_BUILD } from "../constants";
+
 import { isNode } from "./is-node";
+
+const FLAG_NODE_AVAILABLE = !FLAG_BROWSER_ONLY_BUILD;
 
 /**
  * Select a `SecureRandom` implementation that was suitable for the current environment.
@@ -13,12 +17,14 @@ import { isNode } from "./is-node";
  */
 export function getSecureRandom(): ISecureRandomStatic
 {
-    if (isNode())
+    if (FLAG_NODE_AVAILABLE && isNode())
     {
-        return (require("../secure-random-node") as typeof import("../secure-random-node")).SecureRandomNode;
+        const { SecureRandomNode } = require("../secure-random-node") as typeof import("../secure-random-node");
+        return SecureRandomNode;
     }
     else
     {
-        return (require("../secure-random-standard") as typeof import("../secure-random-standard")).SecureRandomStandard;
+        const { SecureRandomStandard } = require("../secure-random-standard") as typeof import("../secure-random-standard");
+        return SecureRandomStandard;
     }
 }
