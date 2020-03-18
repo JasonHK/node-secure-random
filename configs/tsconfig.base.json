@@ -1,6 +1,7 @@
 {
     "compilerOptions": {
         "target": "ES2015",
+        "module": "CommonJS",
         "moduleResolution": "Node",
         "baseUrl": "../",
         "paths": {
@@ -10,8 +11,9 @@
             ],
         },
         "allowSyntheticDefaultImports": true,
-        "emitDecoratorMetadata": true,
+        "emitDecoratorMetadata": false,
         "esModuleInterop": true,
         "experimentalDecorators": true,
+        "resolveJsonModule": true,
     },
 }
