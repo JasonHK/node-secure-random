@@ -6,6 +6,9 @@ import { FLAG_BROWSER_ONLY_BUILD } from "../constants";
 
 import { isNode } from "./is-node";
 
+/**
+ * @hidden
+ */
 const FLAG_NODE_AVAILABLE = !FLAG_BROWSER_ONLY_BUILD;
 
 /**
