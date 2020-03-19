@@ -19,7 +19,7 @@ function ConfigurationFactory(env: string | Record<string, string | number | boo
     const enableSourceMap: boolean = true;
 
     const enableBundleAnalyzer: boolean = true;
-    const openBundleAnalyzerReport: boolean = null;
+    const openBundleAnalyzerReport: boolean = false;
 
     const configuration: Webpack.Configuration = {
         entry: {
