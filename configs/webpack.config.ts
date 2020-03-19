@@ -88,13 +88,7 @@ function ConfigurationFactory(env: string | Record<string, string | number | boo
                 },
             ],
         },
-        plugins: [
-            new Webpack.DefinePlugin(
-                {
-                    // "FLAG_BROWSER_ONLY_BUILD: boolean = false": JSON.stringify(`FLAG_BROWSER_ONLY_BUILD: boolean = ${ JSON.stringify(true) }`),
-                    "FLAG_NODE_AVAILABLE": false,
-                }),
-        ],
+        plugins: [],
         optimization: {
             minimizer: [
                 new TerserWebpackPlugin(
