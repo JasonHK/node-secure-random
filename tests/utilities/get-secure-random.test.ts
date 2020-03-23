@@ -13,7 +13,7 @@ const isNodeMocked = mocked(isNode);
 afterAll(() => { isNodeMocked.mockRestore(); });
 
 describe(
-    "getSecureRandom(): ISecureRandomStatic",
+    "getSecureRandom()",
     () =>
     {
         test(

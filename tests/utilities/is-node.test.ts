@@ -11,7 +11,7 @@ const getGlobalThisMocked = mocked(getGlobalThis);
 afterAll(() => { getGlobalThisMocked.mockRestore(); });
 
 describe(
-    "isNode(): boolean",
+    "isNode()",
     () =>
     {
         test(

@@ -14,84 +14,84 @@ import { IOutputTypesStatic } from "./_interfaces/output-types-static";
 export function executeSecureRandomInstanceTest(instance: AbstractSecureRandom): void
 {
     describe(
-        "getRandomBytes(length: number): Promise<IOutputTypesMap[OutputType.ARRAY]>",
+        "getRandomBytes(length)",
         () =>
         {
             executeMethodTest(instance.getRandomBytes, Array);
         });
 
     describe(
-        "getRandomBytes<T extends OutputType>(length: number, type: T): Promise<IOutputTypesMap[T]>",
+        "getRandomBytes(length, type)",
         () =>
         {
             executeMethodWithOptionsTest(instance.getRandomBytes);
         });
     
     describe(
-        "getRandomBytesSync(length: number): IOutputTypesMap[OutputType.ARRAY]",
+        "getRandomBytesSync(length)",
         () =>
         {
             executeMethodTest(instance.getRandomBytesSync, Array);
         });
 
     describe(
-        "getRandomBytesSync<T extends OutputType>(length: number, type: T): IOutputTypesMap[T]",
+        "getRandomBytesSync(length, type)",
         () =>
         {
             executeMethodWithOptionsTest(instance.getRandomBytesSync);
         });
 
     describe(
-        "getArrayOfRandomBytes(length: number): Promise<IOutputTypesMap[OutputType.ARRAY]>",
+        "getArrayOfRandomBytes(length)",
         () =>
         {
             executeMethodTest(instance.getArrayOfRandomBytes, Array);
         });
 
     describe(
-        "getArrayOfRandomBytesSync(length: number): IOutputTypesMap[OutputType.ARRAY]",
+        "getArrayOfRandomBytesSync(length)",
         () =>
         {
             executeMethodTest(instance.getArrayOfRandomBytesSync, Array);
         });
 
     describe(
-        "getArrayBufferOfRandomBytes(length: number): Promise<IOutputTypesMap[OutputType.ARRAY_BUFFER]>",
+        "getArrayBufferOfRandomBytes(length)",
         () =>
         {
             executeMethodTest(instance.getArrayBufferOfRandomBytes, ArrayBuffer);
         });
 
     describe(
-        "getArrayBufferOfRandomBytesSync(length: number): IOutputTypesMap[OutputType.ARRAY_BUFFER]",
+        "getArrayBufferOfRandomBytesSync(length)",
         () =>
         {
             executeMethodTest(instance.getArrayBufferOfRandomBytesSync, ArrayBuffer);
         });
 
     describe(
-        "getBufferOfRandomBytes(length: number): Promise<IOutputTypesMap[OutputType.BUFFER]>",
+        "getBufferOfRandomBytes(length)",
         () =>
         {
             executeMethodTest(instance.getBufferOfRandomBytes, Buffer);
         });
 
     describe(
-        "getBufferOfRandomBytesSync(length: number): IOutputTypesMap[OutputType.BUFFER]",
+        "getBufferOfRandomBytesSync(length)",
         () =>
         {
             executeMethodTest(instance.getBufferOfRandomBytesSync, Buffer);
         });
 
     describe(
-        "getUint8ArrayOfRandomBytes(length: number): Promise<IOutputTypesMap[OutputType.UINT8_ARRAY]>",
+        "getUint8ArrayOfRandomBytes(length)",
         () =>
         {
             executeMethodTest(instance.getUint8ArrayOfRandomBytes, Uint8Array);
         });
 
     describe(
-        "getUint8ArrayOfRandomBytesSync(length: number): IOutputTypesMap[OutputType.UINT8_ARRAY]",
+        "getUint8ArrayOfRandomBytesSync(length)",
         () =>
         {
             executeMethodTest(instance.getUint8ArrayOfRandomBytesSync, Uint8Array);
