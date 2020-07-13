@@ -64,7 +64,7 @@
     "npm-run-all": "4.1.x",
     "rimraf": "3.0.x",
     "source-map-loader": "0.2.4",
-    "standard-version": "7.1.x",
+    "standard-version": "8.0.x",
     "string-replace-loader": "2.2.x",
     "terser-webpack-plugin": "2.3.x",
     "ts-jest": "25.2.1",
